@@ -26,8 +26,8 @@ start = KubernetesPodOperator(namespace='airflow',
                           cmds=["Python","-c"],
                           arguments=["print('hello world')"],
                           labels={"foo": "bar"},
-                          name="passing-test",
-                          task_id="passing-task",
+                          name="run_this_first",
+                          task_id="run_this_first",
                           get_logs=True,
                           dag=dag
                           )
