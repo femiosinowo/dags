@@ -78,21 +78,21 @@ with DAG(
     start_task = PythonOperator(
         task_id="start_task",
         python_callable=print_stuff,
-        executor_config={"KubernetesExecutor": {"image": "airflow/ci:latest"}}
+        executor_config={"KubernetesExecutor": {"image": "Python:3.6"}}
     )
 
     # But you can if you want to
     one_task = PythonOperator(
         task_id="one_task",
         python_callable=print_stuff,
-        executor_config={"KubernetesExecutor": {"image": "airflow/ci:latest"}}
+        executor_config={"KubernetesExecutor": {"image": "Python:3.6"}}
     )
 
     # Use the zip binary, which is only found in this special docker image
     two_task = PythonOperator(
         task_id="two_task",
         python_callable=use_zip_binary,
-        executor_config={"KubernetesExecutor": {"image": "airflow/ci_zip:latest"}}
+        executor_config={"KubernetesExecutor": {"image": "Python:3.6"}}
     )
 
     # Limit resources on this operator/task with node affinity & tolerations
